@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>we are ninjas</title>
+	<style>
+	body {
+		margin-left: 50px;
+		margin-right: 50px;
+		font-family: Calibri;
+		background-color: #ffe7e2;
+	}
+	hr {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	table, th, td {
+		margin-top: 10px;
+		border: 1px solid black;
+		border-collapse: collapse;
+	}
+	th, td {
+		padding: 10px;
+		text-align: left;
+		background-color: white;
+	}
+	th {
+		background-color: #c6c6c6;
+	}
+</style>
+</head>
+<body>
+	<h1>JQuery Demonstration</h1>
+	<hr>
+	<img src="https://ae01.alicdn.com/kf/HTB118uvSXXXXXcVXXXXq6xXFXXXH/9-6cm-9-8cm-Car-Sticker-Cartoon-Funny-Ninja-Vinyl-Decal-Black-Silver-Accessories-S6-4099.jpg" id="myNinja" width="200" height="200"  alt="ninja" style="height:200px;width:200px;">
+	<div id="menu">
+		<button id="buttonHide">nin nin</button>
+		<button id="buttonShow">nin</button>
+	</div>
+	<hr>
+	<h2>Member List</h2>
+	<input type="text" id="myInput" placeholder="Search Info...">
+	<table>
+		<thead>
+			<tr>
+				<th>Address</th>
+				<th>Phone/FAX</th>
+				<th>E-mail</th>
+			</tr>
+		</thead>
+		<tbody id="myTable">
+			<tr>
+				<td>Somewhere</td>
+				<td>+123123123</td>
+				<td>example1@example.com</td>
+			</tr>
+			<tr>
+				<td>Anywhere</td>
+				<td>+938348332</td>
+				<td>example2@example.com</td>
+			</tr>
+			<tr>
+				<td>Everywhere</td>
+				<td>+972127734</td>
+				<td>example3@example.com</td>
+			</tr>
+			<tr>
+				<td>Nowhere</td>
+				<td>+839748211</td>
+				<td>example4@example.com</td>
+			</tr>
+		</tbody>
+	</table>
+	<hr>
+
+	<p id="test1">Ƹ̵̡Ӝ̵̨̄Ʒ</p>
+	<button id="btn1">tambah 1</button>
+	<button id="btn2">tambah 2</button>
+	<button id="btn3">tambah 3</button>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#myInput").on("keyup", function() {
+			var value = $(this).val().toLowerCase();
+			$("#myTable tr").filter(function() {
+				$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+			});
+		});
+		$("#btn1").click(function(){
+			$("#test1").text(function(i, origText){
+				return "Ƹ̵̡Ӝ̵̨̄Ʒ " + origText; 
+			});
+		});
+		$("#btn2").click(function(){
+			$("#test1").text(function(i, origText){
+				return "Ƹ̵̡Ӝ̵̨̄Ʒ Ƹ̵̡Ӝ̵̨̄Ʒ " + origText; 
+			});
+		});
+		$("#btn3").click(function(){
+			$("#test1").text(function(i, origText){
+				return "Ƹ̵̡Ӝ̵̨̄Ʒ Ƹ̵̡Ӝ̵̨̄Ʒ Ƹ̵̡Ӝ̵̨̄Ʒ " + origText; 
+			});
+		});
+		$("#buttonHide").click(function(){
+			$("#myNinja").animate({	
+				opacity: '0'
+			});
+		});
+		$("#buttonShow").click(function(){
+			$("#myNinja").animate({	
+				opacity: '1'
+			});
+		});
+	});
+</script>
+</html>
